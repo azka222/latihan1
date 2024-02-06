@@ -92,7 +92,7 @@ $car = Cars::create([
     
     $car = Cars::create([
     'carBrand' => 'Suzuki',
-    'carModel' => 'Karimun',
+    'carModel' => 'Jimny',
     'slug' => 'suzukiKarimun',
     'carInformation' => 'Suzuki Karimun Estilo (di Jepang bernama MR Wagon) adalah mobil kecil yang diproduksi oleh Suzuki. Mobil ini juga dipasarkan di Jepang oleh Nissan sebagai Nissan Moco dengan perjanjian. Mobil ini kemudian juga dijual di India oleh Maruti Suzuki sebagai Maruti Zen Estilo tahun 2006. Suzuki Karimun Estilo yang dipasarkan di Indonesia adalah produk CBU yang didatangkan utuh dari India yang diproduksi oleh Maruti Suzuki.',
     'image' => 'suzukiKarimun.jpg',

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cars>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Motor>
  */
-class CarsFactory extends Factory
+class MotorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class CarsFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'carModel' => $this->faker->word()
+            //
         ];
     }
 }

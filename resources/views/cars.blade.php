@@ -8,6 +8,7 @@
                 <a href="/cars/{{ $car->slug }}">{{ $car->carBrand }} {{ $car->carModel}}</a>
             </h2>
             <h6>Mobil {{ $car->carBrand }} dengan kategori {{ $car->category->nameCategory }}</h6>
+            <h6>by <a href="/aboutUs">{{ $car->user->name }}</a></h6>
             <p>{{ $car->carInformation}}</p>
         </article>
   
