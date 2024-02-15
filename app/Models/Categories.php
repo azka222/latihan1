@@ -10,7 +10,7 @@ class Categories extends Model
     protected $fillable = ['nameCategory'];
     use HasFactory;
 
-    public function car(){
+    public function cars(){
         return $this->hasMany(Cars::class);
     }
 }

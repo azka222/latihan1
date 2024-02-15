@@ -35,10 +35,13 @@
                       Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="/carCategory/1">SUV</a>
-                      <a class="dropdown-item" href="/carCategory/2">MPV</a>
-                      <a class="dropdown-item" href="/carCategory/3">LCGC</a>
+                      <a class="dropdown-item" href="/carCategory/SUV">SUV</a>
+                      <a class="dropdown-item" href="/carCategory/MPV">MPV</a>
+                      <a class="dropdown-item" href="/carCategory/LCGC">LCGC</a>
                     </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
                   </li>
             </ul>
         </div>

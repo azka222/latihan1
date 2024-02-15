@@ -13,7 +13,7 @@ class Cars extends Model
     protected $fillable =[ 'carBrand', 'carModel', 'slug', 'carInformation', 'image', 'category_id', 'user_id'];
 
     public function category(){
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Categories::class, 'categories_id');
     }
 
     public function user(){

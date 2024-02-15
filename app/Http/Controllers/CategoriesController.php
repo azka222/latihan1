@@ -63,4 +63,18 @@ class CategoriesController extends Controller
     {
         //
     }
+
+    public function showCategory(Categories $cat){
+        $availableCategory = Categories::pluck('nameCategory')->toArray();
+        if(in_array($cat->nameCategory, $availableCategory)){
+         $categoryCars = Categories::where('nameCategory', $cat->nameCategory)->get();
+        }
+        return view('carCategory', [
+            "title" => $cat->nameCategory,
+            "car_category" => $categoryCars,
+        ]);
+    }
 }
+
+
+
