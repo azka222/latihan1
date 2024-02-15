@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use PragmaRX\Google2FA\Vendor\Laravel\Middlewares\Google2FA;
 
 class Kernel extends HttpKernel
 {
@@ -68,7 +69,9 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         'auth.user' => \App\Http\Middleware\AuthenticateUser::class,
+        '2fa' => Google2FA::class,
     ];
+
     
 }
 

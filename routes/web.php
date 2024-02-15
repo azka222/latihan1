@@ -23,6 +23,12 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/facAuth', function () {
+    return view('facAuth', [
+        "title" => "Authentication"
+    ]);
+});
+
 Route::get('/aboutUs', function (){
     return view('aboutUs', [
         "title" => "About Us",
@@ -49,5 +55,8 @@ Route::get('/carCategory/{cat:nameCategory}', [CategoriesController::class, 'sho
     
 });
 
+
+Route::get('/2fa', 'TwoFactorController@show')->name('2fa');
+Route::post('/2fa', 'TwoFactorController@verify')->name('2fa.verify');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
