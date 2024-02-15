@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\TwoFactorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,8 +56,5 @@ Route::get('/carCategory/{cat:nameCategory}', [CategoriesController::class, 'sho
     
 });
 
-
-Route::get('/2fa', 'TwoFactorController@show')->name('2fa');
-Route::post('/2fa', 'TwoFactorController@verify')->name('2fa.verify');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');

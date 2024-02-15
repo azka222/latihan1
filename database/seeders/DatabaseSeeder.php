@@ -154,7 +154,8 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Azka Alif',
             'email' => 'azkaaliff23@gmail.com',
-            'password' => bcrypt('azkaalif')
+            'password' => bcrypt('azkaalif'),
+            'uses_two_factor_auth' => 1
         ]);
 
         

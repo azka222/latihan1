@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'uses_two_factor_auth',
     ];
 
     /**
