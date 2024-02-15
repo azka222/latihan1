@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
 use App\Models\Cars;
-use App\Http\Controllers\CarsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,23 +39,15 @@ Route::get('/login', function () {
 
 
 Route::middleware('auth.user')->group(function () {
-    Route::get('/cars', 'CarsController@showAll')->name('cars');;
-    Route::get('/carBrand/{car:carBrand}', 'CarsController@showBrand');
-    Route::get('/cars/{car:slug}', 'CarsController@showModel');
-    Route::get('/carCategory/{cat:nameCategory}', 'CategoriesController@showCategory');
+ Route::get('/cars',[CarsController::class, 'showAll']);
+
+Route::get('/carBrand/{car:carBrand}', [CarsController::class, 'showBrand']);
+
+Route::get('/cars/{car:slug}', [CarsController::class, 'showModel']);
+
+Route::get('/carCategory/{cat:nameCategory}', [CategoriesController::class, 'showCategory']);
     
 });
 
-Route::post('/login', 'AuthController@login')->name('login');
 
-
-
-
-
-// Route::get('/cars',[CarsController::class, 'showAll']);
-
-// Route::get('/carBrand/{car:carBrand}', [CarsController::class, 'showBrand']);
-
-// Route::get('/cars/{car:slug}', [CarsController::class, 'showModel']);
-
-// Route::get('/carCategory/{cat:nameCategory}', [CategoriesController::class, 'showCategory']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');

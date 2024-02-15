@@ -20,13 +20,19 @@ class AuthController extends Controller
         
         try {
             if (Auth::attempt($credentials)) {
-                return redirect()->intended('/homePage');
+                return redirect()->intended('/twoFactor');
             }
         } catch (\Exception $e) {
-            dd($e->getMessage());
             return  redirect()->intended('/login');
         }
         return redirect()->intended('/login');
         
     }
+
+    public function logout()
+{
+    Auth::logout();
+
+    return redirect('/login');
+}
 }

@@ -18,31 +18,41 @@
                     <a class="nav-link" href="/cars">Cars</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Brand
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Brand
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="/carBrand/Toyota">Toyota</a>
-                      <a class="dropdown-item" href="/carBrand/Honda">Honda</a>
-                      <a class="dropdown-item" href="/carBrand/Suzuki">Suzuki</a>
-                      <a class="dropdown-item" href="/carBrand/Daihatsu">Daihatsu</a>
-                      <a class="dropdown-item" href="/carBrand/Nissan">Nissan</a>
-                      <a class="dropdown-item" href="/carBrand/Hyundai">Hyundai</a>
+                        <a class="dropdown-item" href="/carBrand/Toyota">Toyota</a>
+                        <a class="dropdown-item" href="/carBrand/Honda">Honda</a>
+                        <a class="dropdown-item" href="/carBrand/Suzuki">Suzuki</a>
+                        <a class="dropdown-item" href="/carBrand/Daihatsu">Daihatsu</a>
+                        <a class="dropdown-item" href="/carBrand/Nissan">Nissan</a>
+                        <a class="dropdown-item" href="/carBrand/Hyundai">Hyundai</a>
                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Category
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="/carCategory/SUV">SUV</a>
-                      <a class="dropdown-item" href="/carCategory/MPV">MPV</a>
-                      <a class="dropdown-item" href="/carCategory/LCGC">LCGC</a>
+                        <a class="dropdown-item" href="/carCategory/SUV">SUV</a>
+                        <a class="dropdown-item" href="/carCategory/MPV">MPV</a>
+                        <a class="dropdown-item" href="/carCategory/LCGC">LCGC</a>
                     </div>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                  </li>
+                </li>
+                <li class="nav-item">
+                    @guest
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    @else
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-link nav-link">Logout</button>
+                        </form>
+                    @endguest
+                </li>
+
             </ul>
         </div>
     </div>
