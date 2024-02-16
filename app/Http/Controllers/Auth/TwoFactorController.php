@@ -27,7 +27,7 @@ class TwoFactorController extends Controller
             $user->uses_two_factor_auth = 0; 
         }
         $user->save();
-        return redirect()->route('accountInfo');
+        return redirect()->route('display');
     }
 
 }

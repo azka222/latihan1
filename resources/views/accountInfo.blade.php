@@ -4,7 +4,7 @@
     <h1>Account Info</h1>
     <h2>Name : {{ $user->name }}</h2>
     <h2>Email : {{ $user->email }}</h2>
-    <form id="2faForm" method="post" action="{{ url('setTwoFactor') }}">
+    <form id="2faForm" method="post" action="{{ route('set2FA') }}">
         @csrf
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" name="toggle" id="flexSwitchCheckDefault" {{ $user->uses_two_factor_auth ? 'checked' : '' }}>

@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::get('/aboutUs', function () {
     return view('aboutUs', [
         "title" => "About Us",
-        "name" => "Muhamad Azka Alif Hartono",
+        "name" => "Muhammad Azka Alif Hartono",
         "university" => "Bina Nusantara University",
         "image" => "profile.jpg"
     ]);
@@ -38,7 +38,8 @@ Route::get('/aboutUs', function () {
 
 
 Route::get('/accountInfo', [UserController::class, 'display'])->name('display');
-Route::post('/set2fa', [TwoFactorController::class, 'set2FA']);
+
+Route::post('/set2fa', [TwoFactorController::class, 'set2FA'])->name('set2FA');
 
 
 
