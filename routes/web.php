@@ -1,11 +1,14 @@
 <?php
 
 use App\Models\Cars;
+use App\Http\Controllers\Auth\TwoFactorController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\VerifyController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\TwoFactorController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +25,9 @@ Route::get('/', function () {
     return view('homePage', [
         "title" => "Home"
     ]);
-});
+})->name('home');
 
-Route::get('/facAuth', function () {
-    return view('facAuth', [
-        "title" => "Authentication"
-    ]);
-});
-
-Route::get('/aboutUs', function (){
+Route::get('/aboutUs', function () {
     return view('aboutUs', [
         "title" => "About Us",
         "name" => "Muhamad Azka Alif Hartono",
@@ -40,21 +37,34 @@ Route::get('/aboutUs', function (){
 });
 
 
+Route::get('/accountInfo', [UserController::class, 'display'])->name('display');
+Route::post('/set2fa', [TwoFactorController::class, 'set2FA']);
+
+
+
 Route::get('/login', function () {
-    return view('login');
+    return view('google2fa.login');
 })->name('login');
+
+Route::get('/qrAuthentication', function () {
+    return view('google2fa.qrAuthentication', [
+    ]);
+})->name('qrAuthentication');
+
+Route::get('/google2fa.index', function () {
+    return view('google2fa.index');
+})->name('otpVerify');
+
+Route::post('/2fa', [VerifyController::class, 'verify'])->name('2fa');
+
 
 
 Route::middleware('auth.user')->group(function () {
- Route::get('/cars',[CarsController::class, 'showAll']);
-
-Route::get('/carBrand/{car:carBrand}', [CarsController::class, 'showBrand']);
-
-Route::get('/cars/{car:slug}', [CarsController::class, 'showModel']);
-
-Route::get('/carCategory/{cat:nameCategory}', [CategoriesController::class, 'showCategory']);
-    
+    Route::get('/cars', [CarsController::class, 'showAll']);
+    Route::get('/carBrand/{car:carBrand}', [CarsController::class, 'showBrand']);
+    Route::get('/cars/{car:slug}', [CarsController::class, 'showModel']);
+    Route::get('/carCategory/{cat:nameCategory}', [CategoriesController::class, 'showCategory']);
 });
 
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');

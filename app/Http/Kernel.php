@@ -69,7 +69,7 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         'auth.user' => \App\Http\Middleware\AuthenticateUser::class,
-        '2fa' => Google2FA::class,
+        '2fa' => \PragmaRX\Google2FALaravel\Middleware::class,
     ];
 
     

@@ -43,6 +43,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/accountInfo">Account</a>
+                </li>
+                <li class="nav-item">
                     @guest
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     @else

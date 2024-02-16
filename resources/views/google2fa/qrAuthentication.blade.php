@@ -14,12 +14,12 @@
 ​
                 <div class="panel-body" style="text-align: center;">
                     <p>Anda dapat menggunakan two factor authentication dengan melakukan scan pada barcode dibawah. Alternatif lainnya, anda dapat menggunakan code berikut: {{ $secret }}</p>
-                    <div>
-                        <img src="{{ $QR_Image }}">
-                    </div>
+               
+                        <img src="{!! $QR_Image !!}
+                
                     <p>Anda harus mengatur Google Authenticator app sebelum melanjutkan.</p>
                     <div>
-                        <a href="/complete-registration"><button class="btn-primary">Selesaikan Pendaftaran</button></a>
+                        <a href="/google2fa.index"><button class="btn-primary">Masukkan OTP</button></a>
                     </div>
                 </div>
             </div>
@@ -27,3 +27,4 @@
     </div>
 </body>
 </html>
+

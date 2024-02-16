@@ -14,7 +14,7 @@
         <div class="col-md-4 col-md-offset-4">
             <h2 class="text-center"><b></b><br>Login</h3>
                 <hr>
-                <form action="" method="post">
+                <form action="login" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Email</label>

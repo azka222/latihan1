@@ -10,6 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
+    
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -18,6 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('uses_two_factor_auth');
+            $table->string('google2fa_secret')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
