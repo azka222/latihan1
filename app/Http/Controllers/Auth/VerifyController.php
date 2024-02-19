@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 use Auth;
+
 use App\Models\User;
+use Illuminate\Http\Request;
 use PragmaRX\Google2FA\Google2FA;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class VerifyController extends Controller
 {
@@ -31,7 +32,8 @@ class VerifyController extends Controller
         $google2fa = new Google2FA();
         $otp_secret = $user->google2fa_secret;
         if (!$google2fa->verifyKey($otp_secret, $request->one_time_password)) {
-            return redirect()->route('login');
+            Session::put('checkOTP', 'error');
+            return redirect()->back();
         }
         $request->session()->forget('2fa:user:id');
         $request->session()->forget('2fa:auth:remember');

@@ -2,33 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Cars;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 class CarsController extends Controller
 {
-    public function showAll(){
+    public function showAll()
+    {
         return view('cars', [
             "title" => "All Cars",
-            "cars" => Cars::with(['category', 'user'])->get()
+            "cars" => Cars::with(['category', 'user'])->get(),
         ]);
     }
 
-    public function showModel(Cars $car){
+    public function showModel(Cars $car)
+    {
         return view('carModel', [
             "title" => $car->carModel,
-            "car" => $car
+            "car" => $car,
         ]);
     }
 
-    public function showBrand(Cars $car){
-        $availableBrand = Cars::pluck('carBrand')->toArray();;
-        if (in_array($car->carBrand, $availableBrand)) {
-            $brand = Cars::where('carBrand', $car->carBrand)->get();
-        }
+    public function showBrand(Cars $car)
+    {
+        $brand = Cars::where('carBrand', $car->carBrand)->get();
         return view('carBrand', [
             "title" => $car->carBrand,
-            "carBrand" => $brand
+            "carBrand" => $brand,
+        ]);
+    }
+
+    public function addNewCar(Request $request)
+    {
+
+    }
+
+    public function showByAuthor(Cars $car)
+    {
+        $author = Session::get('user');
+        $user = $author['id'];
+        $showByAuthor = Cars::where('user_id', $user)->get();
+        return view('carsAuthor', [
+            "title" => "My Cars",
+            "carsAuthor" => $showByAuthor,
         ]);
     }
 }
-

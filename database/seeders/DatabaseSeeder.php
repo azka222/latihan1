@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'carDesc' => 'Nissan March adalah hatchback kompak yang terkenal dengan efisiensi bahan bakarnya, desain yang lincah, dan kemudahan manuver di perkotaan.', 
             'image' => 'nissanMarch.jpeg',
             'categories_id' => '3',
-            'user_id' => '1'
+            'user_id' => '11'
         ]);
 
         Cars::create([
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'carDesc' => 'Suzuki Karimun adalah mobil hatchback entry-level yang terkenal dengan keandalan, efisiensi bahan bakar, dan kemudahan perawatan.', 
             'image' => 'suzukiKarimun.jpeg',
             'categories_id' => '3',
-            'user_id' => '2'
+            'user_id' => '11'
         ]);
 
         Cars::create([
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'carDesc' => 'Honda Brio adalah hatchback kompak yang terkenal dengan desain yang menyenangkan, efisiensi bahan bakar yang baik, dan kenyamanan di dalam kota.', 
             'image' => 'hondaBrio.webp',
             'categories_id' => '3',
-            'user_id' => '3'
+            'user_id' => '11'
 
         ]);
 
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'carInformation' => 'Hyundai Creta, juga dikenal sebagai Hyundai ix25 di Tiongkok, adalah mobil yang diproduksi oleh Hyundai sejak 2014 terutama untuk pasar berkembang, khususnya BRICS. Sebuah SUV crossover subkompak, diposisikan di bawah Tucson dalam jajaran SUV Hyundai. Model generasi pertama memulai debutnya sebagai mobil konsep yang hampir diproduksi di China pada April 2014, sedangkan generasi kedua pertama kali diperkenalkan pada 2019.',
             'image' => 'hyundaiCreta.jpeg',
             'categories_id' => '1',
-            'user_id' => '4'
+            'user_id' => '11'
         ]);
 
         Cars::create([
@@ -72,10 +72,10 @@ class DatabaseSeeder extends Seeder
             'carModel' => 'Santa Fe',
             'slug' => 'hyundaiSantaFe',
             'carInformation' => 'Hyundai Santa Fe  adalah mobil berjenis crossover SUV mid-size yang basisnya diambil dari Hyundai Sonata. Namanya diambil dari kota Santa Fe, New Mexico, Amerika Serikat. Mobil ini pertama kali diperkenalkan tahun 2001 sebagai SUV pertama Hyundai, dirilis bersamaan dengan peluncuran Ford Escape/Mazda Tribute dan Pontiac Aztek. Meski pernah dikritisi oleh para jurnalis otomotif di AS bahwa tampangnya kurang menarik, SUV ini sangat laris di Amerika Serikat. Begitu populernya, sampai-sampai Hyundai kewalahan dalam memasok permintaan. Dengan cepat, Santa Fe menjadi mobil terlaris Hyundai dan berkontribusi pada kesuksesan Hyundai di Amerika Serikat.',
-            'carDesc' => 'Hyundai Santa Fe adalah SUV mid-size yang menawarkan kenyamanan, ruang yang luas, teknologi canggih, dan performa yang handal.', 
+            'carDesc' => 'Hyundai Santa Fe adalah SUV mid-size yang menawarkan kenyamanan, ruang yang luas, teknologi yang sangat canggih, dan performa yang handal.', 
             'image' => 'hyundaiSantafe.jpeg',
             'categories_id' => '1',
-            'user_id' => '5'
+            'user_id' => '11'
         ]);
 
         Cars::create([

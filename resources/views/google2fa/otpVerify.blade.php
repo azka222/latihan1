@@ -5,36 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>OTP Verification</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container"><br>
         <div class="col-md-4 col-md-offset-4">
-            <h2 class="text-center"><b></b><br>Login</h2>
+            <h2 class="text-center"><b></b><br>OTP Verification</h2>
             <hr>
-            @if (Session::get('checkCredentials') == 'error')
+            @if (Session::get('checkOTP') == 'error')
                 <div class="alert alert-danger" role="alert">
-                    Username and password doesn't match!
+                    OTP is invalid!
                 </div>
                 @php
-                    Session::forget('checkCredentials');
+                    Session::forget('checkOTP');
                 @endphp
             @endif
-            <form action="login" method="post">
+            <form method="POST" action="{{ route('2fa') }}">
                 @csrf
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                    <label for="one_time_password">Enter Your OTP</label>
+                    <input id="one_time_password" type="number" class="form-control" name="one_time_password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
                 <hr>
-                <p class="text-center">Belum punya akun? <a href="/register">Register</a> sekarang!</p>
             </form>
         </div>
     </div>

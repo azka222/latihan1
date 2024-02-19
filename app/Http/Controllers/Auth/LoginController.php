@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Auth;
-use App\Models\User;
-use PragmaRX\Google2FA\Google2FA;
-use Illuminate\Support\Facades\Session;
 
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -26,34 +25,31 @@ class LoginController extends Controller
             Session::put('user', $user);
             if ($user->uses_two_factor_auth && empty($user->google2fa_secret)) {
                 $google2fa = app('pragmarx.google2fa');
-                $otp_secret = $google2fa->generateSecretKey();
-                $user->google2fa_secret = $otp_secret;
+                $user->google2fa_secret = $google2fa->generateSecretKey();
                 $user->save();
             }
+  
             $request->session()->put('2fa:user:id', $user->id);
             if ($user->uses_two_factor_auth) {
                 $otp_secret = $user->google2fa_secret;
                 $google2fa = app('pragmarx.google2fa');
-                $QR_Image = $google2fa->getQRCodeInline(
+                $image = $google2fa->getQRCodeInline(
                     config('app.name'),
                     $user->email,
                     $otp_secret
                 );
-                if ($QR_Image) {
-                    return response()->view('google2fa.qrAuthentication', [
-                        'QR_Image' => $QR_Image,
-                        'secret' => $otp_secret
-                    ]);
-                } else {
-                    return redirect()->route('login');
-                }
-            }
-            else{
+                $QR_Image = 'data:image/svg+xml;base64,' . base64_encode($image);
+                return response()->view('google2fa.qrAuthentication', [
+                    'QR_Image' => $QR_Image,
+                    'secret' => $otp_secret,
+                ]);
+
+            } else {
                 return redirect()->route('home');
             }
         }
-        return redirect()->route('login');
+
+        Session::put('checkCredentials', 'error');
+        return redirect()->back();
     }
 }
-
-

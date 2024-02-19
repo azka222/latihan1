@@ -42,8 +42,8 @@
                         <a class="dropdown-item" href="/carCategory/LCGC">LCGC</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/accountInfo">Account</a>
+                <li class="nav-item {{ $title == 'User Information' ? 'active' : '' }}">
+                    <a class="nav-link " href="/accountInfo">Account</a>
                 </li>
                 <li class="nav-item">
                     @guest
